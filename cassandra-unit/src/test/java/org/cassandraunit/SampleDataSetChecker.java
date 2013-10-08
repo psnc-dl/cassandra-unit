@@ -36,15 +36,15 @@ public class SampleDataSetChecker {
 		QueryResult<OrderedRows<byte[], byte[], byte[]>> result = query.execute();
 		List<Row<byte[], byte[], byte[]>> rows = result.get().getList();
 		assertThat(rows.size(), is(3));
-		assertThat(rows.get(0).getKey(), is(decodeHex("30")));
-		assertThat(rows.get(0).getColumnSlice().getColumns().size(), is(2));
-		assertThat(rows.get(0).getColumnSlice().getColumns().get(0).getName(), is(decodeHex("31")));
-		assertThat(rows.get(0).getColumnSlice().getColumns().get(0).getValue(), is(decodeHex("31")));
-		assertThat(rows.get(0).getColumnSlice().getColumns().get(1).getName(), is(decodeHex("32")));
-		assertThat(rows.get(0).getColumnSlice().getColumns().get(1).getValue(), is(decodeHex("32")));
-		assertThat(rows.get(1).getKey(), is(decodeHex("10")));
-		assertThat(rows.get(2).getKey(), is(decodeHex("20")));
-
+		assertThat(rows.get(0).getKey(), is(decodeHex("10")));
+		assertThat(rows.get(1).getKey(), is(decodeHex("20")));
+		assertThat(rows.get(2).getKey(), is(decodeHex("30")));
+		assertThat(rows.get(2).getColumnSlice().getColumns().size(), is(2));
+        assertThat(rows.get(2).getColumnSlice().getColumns().get(0).getName(), is(decodeHex("31")));
+        assertThat(rows.get(2).getColumnSlice().getColumns().get(0).getValue(), is(decodeHex("31")));
+        assertThat(rows.get(2).getColumnSlice().getColumns().get(1).getName(), is(decodeHex("32")));
+        assertThat(rows.get(2).getColumnSlice().getColumns().get(1).getValue(), is(decodeHex("32")));
+        
 	}
 
 	public static void assertDataSetDefaultValues(DataSet dataSet) {

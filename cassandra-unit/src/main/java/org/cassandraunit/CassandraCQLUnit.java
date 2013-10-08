@@ -13,7 +13,7 @@ public class CassandraCQLUnit extends BaseCassandraUnit {
     private CQLDataSet dataSet;
 
     private static final Logger log = LoggerFactory.getLogger(CassandraCQLUnit.class);
-    private String hostIp = "127.0.0.1";
+    private String hostIp = "localhost";
     private int port = 9142;
     public Session session;
 

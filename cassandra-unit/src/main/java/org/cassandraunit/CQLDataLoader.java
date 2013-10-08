@@ -76,8 +76,10 @@ public class CQLDataLoader {
       session.execute(createQuery);
     }
 
-    String useQuery = "USE " + keyspaceName;
-    log.debug("executing : " + useQuery);
-    session.execute(useQuery);
+    if(dataSet.isUseKeyspace()){
+        String useQuery = "USE " + keyspaceName;
+        log.debug("executing : " + useQuery);
+        session.execute(useQuery);
+    }
   }
 }

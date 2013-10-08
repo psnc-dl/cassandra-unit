@@ -64,7 +64,7 @@ public class ClasspathXmlDataSetTest {
         } catch (ParseException e) {
             /* nothing to do, it what we want */
             assertThat(StringUtils.contains(e.getMessage(),
-                    "Invalid content was found starting with element 'columnFamily'"), is(Boolean.TRUE));
+                    "'{\"http://xml.dataset.cassandraunit.org\":columnFamilies}'"), is(Boolean.TRUE));
         }
     }
 

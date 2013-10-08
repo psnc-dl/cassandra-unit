@@ -22,10 +22,10 @@ public class EmbeddedCassandraServerHelperTest {
 	@Test
 	public void shouldStartAndCleanAnEmbeddedCassandra() throws Exception {
 		EmbeddedCassandraServerHelper.startEmbeddedCassandra();
-		testIfTheEmbeddedCassandraServerIsUpOnHost("127.0.0.1:9171");
+		testIfTheEmbeddedCassandraServerIsUpOnHost("localhost:9171");
         EmbeddedCassandraServerHelper.cleanEmbeddedCassandra();
 		EmbeddedCassandraServerHelper.startEmbeddedCassandra();
-		testIfTheEmbeddedCassandraServerIsUpOnHost("127.0.0.1:9171");
+		testIfTheEmbeddedCassandraServerIsUpOnHost("localhost:9171");
         EmbeddedCassandraServerHelper.cleanEmbeddedCassandra();
 	}
 

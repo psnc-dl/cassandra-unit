@@ -34,6 +34,10 @@ public class ClassPathCQLDataSet extends AbstractCQLDataSet implements CQLDataSe
         super(dataSetLocation, keyspaceCreation, keyspaceDeletion, keyspaceName);
     }
 
+    public ClassPathCQLDataSet(String dataSetLocation, boolean keyspaceCreation, boolean keyspaceDeletion, boolean useKeyspace, String keyspaceName) {
+        super(dataSetLocation, keyspaceCreation, keyspaceDeletion, useKeyspace, keyspaceName);
+    }
+
     @Override
     protected InputStream getInputDataSetLocation(String dataSetLocation) {
         InputStream inputDataSetLocation = this.getClass().getResourceAsStream("/" + dataSetLocation);

@@ -21,6 +21,7 @@ public abstract class AbstractCQLDataSet implements CQLDataSet {
     private String keyspaceName = null;
     private boolean keyspaceCreation = true;
     private boolean keyspaceDeletion = true;
+    private boolean useKeyspace = true;
 
     public AbstractCQLDataSet(String dataSetLocation) {
         this.dataSetLocation = dataSetLocation;
@@ -33,14 +34,18 @@ public abstract class AbstractCQLDataSet implements CQLDataSet {
     public AbstractCQLDataSet(String dataSetLocation, String keyspaceName) {
         this(dataSetLocation, true, true, keyspaceName);
     }
-
     public AbstractCQLDataSet(String dataSetLocation, boolean keyspaceCreation, boolean keyspaceDeletion, String keyspaceName) {
+        this(dataSetLocation, keyspaceCreation, keyspaceDeletion, true, keyspaceName);
+    }
+    
+    public AbstractCQLDataSet(String dataSetLocation, boolean keyspaceCreation, boolean keyspaceDeletion, boolean useKeyspace, String keyspaceName) {
         if (getInputDataSetLocation(dataSetLocation) == null) {
             throw new ParseException("Dataset not found");
         }
         this.dataSetLocation = dataSetLocation;
         this.keyspaceCreation = keyspaceCreation;
         this.keyspaceDeletion = keyspaceDeletion;
+        this.useKeyspace = useKeyspace;
         if (keyspaceName != null) {
             this.keyspaceName = keyspaceName.toLowerCase();
         }
@@ -112,5 +117,9 @@ public abstract class AbstractCQLDataSet implements CQLDataSet {
 
     public boolean isKeyspaceDeletion() {
       return keyspaceDeletion;
+    }
+
+    public boolean isUseKeyspace() {
+        return useKeyspace;
     }
 }
